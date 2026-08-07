@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Terms of Service — FDE</title>
+<meta name="description" content="The terms governing your use of FDE's assessment and mentorship program." />
+<meta name="theme-color" content="#0A0A0B" />
+<meta name="robots" content="noindex" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0A0A0B; --bg-1:#0E0E10; --bg-elevated:#141416; --bg-card:#131316;
+    --border:#232326; --border-strong:#2E2E33;
+    --text-1:#F1F1EF; --text-2:#A4A4AC; --text-3:#6C6C74;
+    --accent:#5B7FFF; --accent-soft:#8FA6FF; --accent-dim:#1C2340;
+    --max:1180px;
+    --font-display:'Inter Tight','Geist',-apple-system,sans-serif;
+    --font-body:'Inter',-apple-system,sans-serif;
+    --font-mono:'JetBrains Mono',ui-monospace,monospace;
+    --ease:cubic-bezier(.16,.8,.24,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{transition-duration:.001ms !important;} }
+  body{ background:var(--bg); color:var(--text-1); font-family:var(--font-body); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 32px; }
+  @media (max-width:640px){ .wrap{ padding:0 20px; } }
+
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(10,10,11,0.72);
+    backdrop-filter:blur(14px) saturate(140%);
+    -webkit-backdrop-filter:blur(14px) saturate(140%);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; height:68px; }
+  .logo{ font-family:var(--font-mono); font-weight:500; font-size:15px; letter-spacing:0.02em; display:flex; align-items:center; gap:9px; }
+  .logo .dot{ width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px rgba(91,127,255,0.35); }
+  .logo span.sub{ color:var(--text-3); font-weight:400; font-size:12px; margin-left:2px; }
+  .back-link{ font-size:14px; color:var(--text-2); display:flex; align-items:center; gap:8px; transition:color .2s var(--ease); }
+  .back-link:hover{ color:var(--text-1); }
+
+  .doc-hero{ padding:72px 0 48px; border-bottom:1px solid var(--border); }
+  .eyebrow{
+    font-family:var(--font-mono); font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--accent-soft); display:flex; align-items:center; gap:10px; margin-bottom:20px;
+  }
+  .eyebrow::before{ content:''; width:16px; height:1px; background:var(--accent); }
+  h1{ font-family:var(--font-display); font-weight:700; letter-spacing:-0.02em; font-size:clamp(30px,4.5vw,46px); line-height:1.1; margin-bottom:16px; max-width:700px; }
+  .doc-meta{ font-family:var(--font-mono); font-size:12.5px; color:var(--text-3); }
+
+  .doc-body{ padding:64px 0 100px; }
+  .doc-grid{ display:grid; grid-template-columns:240px 1fr; gap:64px; align-items:start; }
+  @media (max-width:860px){ .doc-grid{ grid-template-columns:1fr; gap:40px; } }
+
+  .toc{
+    position:sticky; top:100px; z-index:10;
+    background:var(--bg); padding:4px 0;
+  }
+  @media (max-width:860px){
+    .toc{ position:static; padding:0; background:none; }
+  }
+  .toc h4{ font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-3); margin-bottom:16px; }
+  .toc a{ display:block; font-size:13.5px; color:var(--text-2); padding:8px 0; border-left:2px solid var(--border); padding-left:14px; transition:all .2s var(--ease); }
+  .toc a:hover{ color:var(--text-1); border-left-color:var(--accent); }
+
+  .content h2{
+    font-family:var(--font-display); font-weight:700; letter-spacing:-0.01em;
+    font-size:22px; margin:48px 0 16px; scroll-margin-top:100px;
+  }
+  .content h2:first-child{ margin-top:0; }
+  .content p{ color:var(--text-2); font-size:15.5px; line-height:1.75; margin-bottom:16px; max-width:680px; }
+  .content p strong{ color:var(--text-1); font-weight:600; }
+  .content ul{ margin:0 0 16px; display:flex; flex-direction:column; gap:10px; max-width:680px; }
+  .content ul li{ color:var(--text-2); font-size:15px; padding-left:20px; position:relative; line-height:1.65; }
+  .content ul li::before{ content:'—'; position:absolute; left:0; color:var(--text-3); font-family:var(--font-mono); }
+  .content a.inline{ color:var(--accent-soft); border-bottom:1px solid rgba(91,127,255,0.35); }
+  .content a.inline:hover{ color:var(--text-1); }
+  .content section{ border-top:1px solid var(--border); padding-top:1px; }
+  .content section:first-child{ border-top:none; }
+
+  .callout-box{
+    margin:16px 0 24px; padding:20px 22px; border-left:2px solid var(--accent);
+    background:var(--bg-card); border-radius:0 10px 10px 0; max-width:680px;
+  }
+  .callout-box p{ margin-bottom:0; color:var(--text-2); font-size:14.5px; }
+  .callout-box p strong{ color:var(--text-1); }
+
+  .contact-box{
+    margin-top:20px; padding:24px; border:1px solid var(--border); border-radius:10px; background:var(--bg-card);
+    max-width:520px;
+  }
+  .contact-box .row{ display:flex; justify-content:space-between; gap:16px; padding:10px 0; border-bottom:1px solid var(--border); font-size:14px; }
+  .contact-box .row:last-child{ border-bottom:none; }
+  .contact-box .row span:first-child{ color:var(--text-3); font-family:var(--font-mono); font-size:12.5px; }
+  .contact-box .row span:last-child{ color:var(--text-1); }
+
+  footer{ padding:48px 0 40px; border-top:1px solid var(--border); }
+  .footer-bottom{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:13px; color:var(--text-3); }
+  .footer-links{ display:flex; gap:24px; }
+  .footer-links a{ color:var(--text-2); transition:color .2s var(--ease); }
+  .footer-links a:hover{ color:var(--text-1); }
+
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="dot"></span>FDE<span class="sub">Forward Deployed Engineer</span></a>
+    <a href="index.html" class="back-link">← Back to site</a>
+  </div>
+</header>
+
+<main>
+  <section class="doc-hero">
+    <div class="wrap">
+      <div class="eyebrow">Legal</div>
+      <h1>Terms of Service.</h1>
+      <div class="doc-meta">Last updated: August 7, 2026</div>
+    </div>
+  </section>
+
+  <section class="doc-body">
+    <div class="wrap doc-grid">
+
+      <nav class="toc" aria-label="Table of contents">
+        <h4>On this page</h4>
+        <a href="#acceptance">Acceptance of terms</a>
+        <a href="#service">Description of service</a>
+        <a href="#application">Application &amp; assessment</a>
+        <a href="#outcomes">No guaranteed outcomes</a>
+        <a href="#pricing">Pricing &amp; payment</a>
+        <a href="#conduct">Your responsibilities</a>
+        <a href="#ip">Intellectual property</a>
+        <a href="#liability">Limitation of liability</a>
+        <a href="#termination">Termination</a>
+        <a href="#law">Governing law</a>
+        <a href="#changes">Changes to these terms</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="content">
+
+        <section id="acceptance">
+          <h2>Acceptance of terms</h2>
+          <p>These Terms of Service ("Terms") govern your use of the FDE website and your participation in FDE's assessment and mentorship program. By submitting an application, or otherwise using this site, you agree to be bound by these Terms. If you don't agree, please don't use the site or submit an application.</p>
+        </section>
+
+        <section id="service">
+          <h2>Description of service</h2>
+          <p>FDE provides individualized engineering assessment and mentorship. We evaluate each applicant's current knowledge and goals, then propose a personalized learning roadmap, an estimated timeline, and pricing. There is no fixed syllabus and no fixed pricing — both are determined per learner, after assessment.</p>
+          <p>FDE is not an accredited educational institution, and mentorship provided under these Terms does not constitute a degree, diploma, or formal certification unless explicitly stated otherwise in writing.</p>
+        </section>
+
+        <section id="application">
+          <h2>Application &amp; assessment</h2>
+          <p>Submitting the application form is a request for assessment, not an enrollment. We review applications individually. Submitting an application does not guarantee acceptance into the mentorship program, and you're under no obligation to proceed after receiving your roadmap and pricing.</p>
+          <p>You agree to provide accurate information in your application. Providing false or misleading information may result in your application being declined or, if discovered later, your access being terminated.</p>
+        </section>
+
+        <section id="outcomes">
+          <h2>No guaranteed outcomes</h2>
+          <div class="callout-box">
+            <p><strong>FDE does not guarantee job placement, interview outcomes, or any specific career result.</strong> Mentorship provides structure, guidance, and real engineering practice — what you make of it depends on your own effort, consistency, and circumstances outside our control.</p>
+          </div>
+          <p>Any timeline or outcome discussed during your assessment is an estimate based on the information you provide, not a commitment of a specific result by a specific date.</p>
+        </section>
+
+        <section id="pricing">
+          <h2>Pricing &amp; payment</h2>
+          <p>Pricing is determined after your assessment and is specific to your roadmap and timeline. Any pricing shared with you will be communicated clearly before you're asked to pay anything, with no hidden charges.</p>
+          <p>Refund terms, if applicable, will be provided in writing at the time you agree to proceed with mentorship, and take precedence over any general statement made elsewhere on this site.</p>
+        </section>
+
+        <section id="conduct">
+          <h2>Your responsibilities</h2>
+          <p>To get real value from mentorship, you agree to:</p>
+          <ul>
+            <li>Engage honestly in your assessment and ongoing guidance</li>
+            <li>Do the work — mentorship guides your effort, it doesn't replace it</li>
+            <li>Use any shared materials, feedback, or guidance for your own learning, not for redistribution or resale</li>
+            <li>Treat mentors and staff with the same professionalism you'd expect in a workplace</li>
+          </ul>
+        </section>
+
+        <section id="ip">
+          <h2>Intellectual property</h2>
+          <p>Roadmaps, written guidance, and materials provided to you as part of mentorship are for your personal use. FDE retains ownership of its methodology, templates, and general program materials. Projects and code you build yourself remain yours.</p>
+        </section>
+
+        <section id="liability">
+          <h2>Limitation of liability</h2>
+          <p>FDE and its mentors provide guidance in good faith but aren't liable for career, financial, or other outcomes resulting from your use of the program. To the extent permitted by law, our liability for any claim arising from these Terms is limited to the amount you paid us in the twelve months before the claim arose.</p>
+        </section>
+
+        <section id="termination">
+          <h2>Termination</h2>
+          <p>You may stop participating in mentorship at any time. We may suspend or terminate access if you violate these Terms, provide false information, or engage in conduct that's abusive or disruptive to mentors or other learners. Where payment terms apply, termination doesn't automatically entitle you to a refund unless stated otherwise in your specific agreement.</p>
+        </section>
+
+        <section id="law">
+          <h2>Governing law</h2>
+          <p>These Terms are governed by the laws of the jurisdiction in which FDE operates, without regard to conflict-of-law principles. Any dispute arising from these Terms will be handled in the courts of that jurisdiction, unless otherwise required by applicable law.</p>
+        </section>
+
+        <section id="changes">
+          <h2>Changes to these terms</h2>
+          <p>We may update these Terms as the program evolves. If we make material changes, we'll update the "last updated" date above. Continued use of the site or program after changes take effect means you accept the revised Terms.</p>
+        </section>
+
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>Questions about these Terms can be directed to us using the details below.</p>
+          <div class="contact-box">
+            <div class="row"><span>EMAIL</span><span>hello@fde.dev</span></div>
+            <div class="row"><span>RELATED</span><span><a href="privacy.html" class="inline">Privacy Policy</a></span></div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-bottom">
+    <span>© 2026 FDE — Forward Deployed Engineer.</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
