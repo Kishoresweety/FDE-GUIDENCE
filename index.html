@@ -1030,7 +1030,7 @@
     TEMPLATE_ID: 'template_phos3ws'
   };
 
-  if(window.emailjs && EMAILJS_CONFIG.PUBLIC_KEY !== 'thepRkB4sgQGLpqe9){
+  if(window.emailjs && EMAILJS_CONFIG.PUBLIC_KEY !== 'thepRkB4sgQGLpqe9'){
     emailjs.init({ publicKey: EMAILJS_CONFIG.PUBLIC_KEY });
   }
 
@@ -1100,7 +1100,7 @@
       return;
     }
 
-    if(!window.emailjs || EMAILJS_CONFIG.PUBLIC_KEY === 'thepRkB4sgQGLpqe9){
+    if(!window.emailjs || EMAILJS_CONFIG.PUBLIC_KEY === 'thepRkB4sgQGLpqe9'){
       showStatus('error', 'Email sending isn\'t configured yet — add your EmailJS keys in the script before this form can submit.');
       return;
     }
