@@ -1025,12 +1025,12 @@
      {{biggest_challenge}}, {{three_year_goal}}, {{hours_weekly}}, {{preferred_language}}.
   ---------------------------------------- */
   var EMAILJS_CONFIG = {
-    PUBLIC_KEY: 'YOUR_PUBLIC_KEY',
-    SERVICE_ID: 'YOUR_SERVICE_ID',
-    TEMPLATE_ID: 'YOUR_TEMPLATE_ID'
+    PUBLIC_KEY: 'thepRkB4sgQGLpqe9',
+    SERVICE_ID: 'service_1tnw00h',
+    TEMPLATE_ID: 'template_phos3ws'
   };
 
-  if(window.emailjs && EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY'){
+  if(window.emailjs && EMAILJS_CONFIG.PUBLIC_KEY !== 'thepRkB4sgQGLpqe9){
     emailjs.init({ publicKey: EMAILJS_CONFIG.PUBLIC_KEY });
   }
 
@@ -1100,7 +1100,7 @@
       return;
     }
 
-    if(!window.emailjs || EMAILJS_CONFIG.PUBLIC_KEY === 'YOUR_PUBLIC_KEY'){
+    if(!window.emailjs || EMAILJS_CONFIG.PUBLIC_KEY === 'thepRkB4sgQGLpqe9){
       showStatus('error', 'Email sending isn\'t configured yet — add your EmailJS keys in the script before this form can submit.');
       return;
     }
