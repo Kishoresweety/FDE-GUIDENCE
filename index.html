@@ -860,7 +860,7 @@
           <input type="text" id="preferred_language" name="preferred_language" placeholder="English, Hindi, Tamil..." />
         </div>
 
-        <div class="submit-status" id="submitStatus" role="status"></div>
+        <div class="submit-status" id="submitStatus" role="status" aria-live="polite"></div>
 
         <div class="form-footer">
           <p class="form-note">We review every application individually. There's no automatic acceptance — and no obligation once you apply.</p>
@@ -953,7 +953,6 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script type = text/javascript>emailjs.init('thepRkB4sgQGLpqe9')</script>
 <script>
   
 (function(){
@@ -1032,7 +1031,7 @@
     TEMPLATE_ID: 'template_phos3ws'
   };
 
-  if(window.emailjs && EMAILJS_CONFIG.PUBLIC_KEY !== 'thepRkB4sgQGLpqe9'){
+  if(window.emailjs){
     emailjs.init({ publicKey: EMAILJS_CONFIG.PUBLIC_KEY });
   }
 
@@ -1042,12 +1041,22 @@
   var submitBtn = document.getElementById('submitBtn');
 
   function setError(field, hasError){
-    if(hasError){ field.classList.add('error'); }
-    else{ field.classList.remove('error'); }
+    var control = field.querySelector('input, select, textarea');
+    if(hasError){
+      field.classList.add('error');
+      if(control) control.setAttribute('aria-invalid', 'true');
+    } else {
+      field.classList.remove('error');
+      if(control) control.removeAttribute('aria-invalid');
+    }
   }
 
-  function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
-  function validPhone(v){ return /^[+]?[\d\s().-]{7,}$/.test(v); }
+  function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
+  function validPhone(v){
+    var value = v.trim();
+    var digits = value.replace(/\D/g, '');
+    return /^\+?[\d\s().-]+$/.test(value) && digits.length >= 7 && digits.length <= 15;
+  }
 
   function showStatus(kind, message){
     statusBox.className = 'submit-status show';
@@ -1102,8 +1111,8 @@
       return;
     }
 
-    if(!window.emailjs || EMAILJS_CONFIG.PUBLIC_KEY === 'thepRkB4sgQGLpqe9'){
-      showStatus('error', 'Email sending isn\'t configured yet — add your EmailJS keys in the script before this form can submit.');
+    if(!window.emailjs){
+      showStatus('error', 'The application service could not load. Please check your connection and try again.');
       return;
     }
 
@@ -1127,6 +1136,15 @@
         submitBtn.style.opacity = '';
         submitBtn.textContent = 'Request Assessment';
       });
+  });
+
+  form.querySelectorAll('input, select, textarea').forEach(function(control){
+    var eventName = control.type === 'radio' || control.tagName === 'SELECT' ? 'change' : 'input';
+    control.addEventListener(eventName, function(){
+      var field = control.closest('.field');
+      if(field && field.classList.contains('error')) setError(field, false);
+      if(statusBox.classList.contains('show')) statusBox.className = 'submit-status';
+    });
   });
 
   /* ---------- Hero network animation ---------- */
